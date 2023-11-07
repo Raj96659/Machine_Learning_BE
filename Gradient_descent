@@ -1,0 +1,18 @@
+x = 2                         #start
+lr = 0.01                     #learning rate
+precision = 0.000001          #when to stop algorithm
+previous_step_size = 1
+max_iter = 10000              #how many times to iterate
+iters = 0                     #counter
+gf = lambda x:(x + 3)**2      #lambda function
+
+
+while precision < previous_step_size and iters < max_iter:
+  prev = x
+  x = x-lr*gf(prev)
+  previous_step_size =  abs(x-prev)
+  iters+=1
+  print('Iteration:',iters,'Value:',x)
+
+
+print('Local Minima:',x)
